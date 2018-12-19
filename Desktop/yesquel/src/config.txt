@@ -1,0 +1,51 @@
+# Sample of Yesquel configuration for one server running locally
+
+nservers       1               # number of storage servers
+stripe_method  0               # method to stripe coids. Only 0 supported.
+stripe_parm    0               # parameter to method to sprite. Use 0.
+prefer_ip      "0.0.0.0"       # preferred IP prefix. If a server has many IPs,
+                               #   it will try to pick an IP with this prefix.
+prefer_ip_mask "0.0.0.0"       # enabled bits in preferred IP prefix
+
+  # declaration of first server. Host
+                                      # can be an IP or a DNS name. Many servers
+                                      # can be on one host by assigning them
+                                      # different ports (in this case,
+                                      # the command line to start a server
+                                      # needs to indicate a port).
+server 0 host "172.17.0.3" port 11223
+server 1 host "172.17.0.4" port 11224
+server 2 host "172.17.0.5" port 11225
+server 3 host "172.17.0.6" port 11226
+server 4 host "172.17.0.7" port 11227
+server 5 host "172.17.0.8" port 11228
+#server 6 host "172.17.0.6" port 11229
+#server 7 host "172.17.0.6" port 11230
+#server 8 host "172.17.0.6" port 11231
+#server 9 host "172.17.0.6" port 11232
+# Configuration for each storage server
+
+host "172.17.0.3" port 11223 { # must match the declaration above
+  logfile "/tmp/d1.log"       # where to store the transaction log (if enabled)
+  storedir "/tmp/d1store"     # where objects are stored (if disk enabled)
+}
+host "172.17.0.4" port 11224 { # must match the declaration above
+  logfile "/tmp/d2.log"       # where to store the transaction log (if enabled)
+  storedir "/tmp/d2store"     # where objects are stored (if disk enabled)
+}
+host "172.17.0.5" port 11225 { # must match the declaration above
+  logfile "/tmp/d3.log"       # where to store the transaction log (if enabled)
+  storedir "/tmp/d3store"     # where objects are stored (if disk enabled)
+}
+host "172.17.0.6" port 11226 { # must match the declaration above
+  logfile "/tmp/d4.log"       # where to store the transaction log (if enabled)
+  storedir "/tmp/d4store"     # where objects are stored (if disk enabled)
+}
+host "172.17.0.7" port 11227 { # must match the declaration above
+  logfile "/tmp/d5.log"       # where to store the transaction log (if enabled)
+  storedir "/tmp/d5store"     # where objects are stored (if disk enabled)
+}
+host "172.17.0.8" port 11228 { # must match the declaration above
+  logfile "/tmp/d6.log"       # where to store the transaction log (if enabled)
+  storedir "/tmp/d6store"     # where objects are stored (if disk enabled)
+}
